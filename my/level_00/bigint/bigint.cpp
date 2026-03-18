@@ -11,7 +11,8 @@ bigint::bigint() {
 }
 
 bigint::bigint(unsigned int n) {
-	if (n == 0) _digits.push_back(0);
+	if (n == 0)
+		_digits.push_back(0);
 	while (n > 0) {
 		_digits.push_back(n % 10);
 		n /= 10;
@@ -30,12 +31,13 @@ bigint::bigint(std::string s) {
 		}
 	}
 	_removeLeadingZeros();
-	if (_digits.empty()) _digits.push_back(0);
+	if (_digits.empty())
+		_digits.push_back(0);
 }
 
 bigint::bigint(const bigint &other) : _digits(other._digits) {}
 
-bigint &bigint::operator=(const bigint &other) {
+bigint& bigint::operator=(const bigint &other) {
 	if (this != &other) {
 		_digits = other._digits;
 	}
