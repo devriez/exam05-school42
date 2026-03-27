@@ -71,7 +71,7 @@ bigint bigint::operator+(const bigint &other) const {
 	size_t n = std::max(_digits.size(), other._digits.size());
 	for (size_t i = 0; i < n || carry; ++i) {
 		int sum = carry + (i < _digits.size() ? _digits[i] : 0)
-		                + (i < other._digits.size() ? other._digits[i] : 0);
+						+ (i < other._digits.size() ? other._digits[i] : 0);
 		res._digits.push_back(sum % 10);
 		carry = sum / 10;
 	}
@@ -100,7 +100,8 @@ bigint bigint::operator>>(size_t n) const {
 	if (n >= _digits.size()) return bigint(0);
 	bigint res = *this;
 	res._digits.erase(res._digits.begin(), res._digits.begin() + n);
-	if (res._digits.empty()) res._digits.push_back(0);
+	if (res._digits.empty())
+		res._digits.push_back(0);
 	return res;
 }
 
